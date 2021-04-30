@@ -19,7 +19,16 @@ body {
 	display: block;
 	border-radius: 5px;	
 }
-.startBtn{
+.btn-block{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+#reset{
+	display: none;
+}
+
+.btn{
 	font-size: 30px;
 	display: flex;
 	padding: 4px;

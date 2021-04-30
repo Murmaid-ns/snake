@@ -1,6 +1,7 @@
 let canvas = document.querySelector("#game-canvas");
 let context = canvas.getContext("2d");
-let startBtn = document.querySelector('.startBtn');
+let startBtn = document.querySelector('#start');
+let resetBtn = document.querySelector('#reset');
 let gameOverNotification = document.querySelector('#game-over');
 let winNotification = document.querySelector('#win');
 let scoreBlock = document.querySelector(".game-score .score-count");
@@ -61,15 +62,16 @@ let gameLoop = () => {
 
 startBtn.addEventListener('click', (e) => {
     randomPositionBerry();
-    startBtn.innerHTML = "Reset";
-    gameOverNotification.style = 'display: none;';
-    winNotification.style = 'display: none;';
     requestAnimationFrame(gameLoop);
-    if (startBtn.innerHTML !== "Reset") {
-        location.reload();
-    }
+    startBtn.style = 'display: none;';
+    resetBtn.style = 'display: flex;';
 });
 
+resetBtn.addEventListener('click', (e) => {
+    location.reload();
+    gameOverNotification.style = 'display: none;';
+    winNotification.style = 'display: none;';
+});
 
 function drawSnake(requestId) {
     snake.x += snake.dx;
